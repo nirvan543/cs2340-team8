@@ -59,4 +59,8 @@ public class Planet
         currentName = name;
     } 
 
+    public void setName(int name) {
+        this.name = name;
+    } 
+
 }

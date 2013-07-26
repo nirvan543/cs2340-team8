@@ -86,6 +86,7 @@
       
 	<% for (int k=0; k < currentSystem.getPlanets().size(); k++,j++) { %>
     <% Planet currentPlanet = currentSystem.getPlanets().get(k); %>
+    <% currentPlanet.setName(j+1); %>
       <form action="/risk/game" method="POST">
          	<tr>
             <td><%= currentPlanet.getName()%></td>
@@ -120,8 +121,11 @@
             </td>
              <td>
               <select name="fortifyPlanets" disabled>
-                <% for (StarSystem system : game.getAllSystems()) {
+                <% int index = 1;
+				for (StarSystem system : game.getAllSystems()) {
                     for (Planet planet : system.getPlanets()) {
+						planet.setName(index);
+						index++;
                       if (planet.getOwner().equals(currentPlayer) 
                         && (!currentPlanet.equals(planet)) 
                           && (planet.getFleets() > 1)) {%>
