@@ -74,10 +74,4 @@ public class Player {
 	public void setName(String newName) {
 		name = newName;
 	}
-
-
-
-
-
-
 }

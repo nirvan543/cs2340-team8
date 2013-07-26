@@ -67,7 +67,6 @@ public class GameLogic
     }
 
     public void attackPlanet(Planet defender, Planet attacker, int attackFleetAmount) {
-        //assume front end takes care of Panet's being able to attack or not
         int attackDie = getAttackerDie(attacker, attackFleetAmount);
         int defendDie = getDefenderDie(defender, attackDie);
         if (attackDie < defendDie)
