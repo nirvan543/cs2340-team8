@@ -67,6 +67,9 @@ import javax.servlet.http.HttpServletResponse;
         } else if (operation.equalsIgnoreCase("FORTIFY")){
             System.out.println("Delegating to doFortify()");
             doFortify(request, response);
+        } else if (operation.equalsIgnoreCase("GAMEOVER")){
+            System.out.println("Delegating to doFortify()");
+            doGameOver(request, response);
         }
         else {
             String name = request.getParameter("name");
@@ -238,6 +241,25 @@ import javax.servlet.http.HttpServletResponse;
         }
     }
 
+    protected void doGameOver(HttpServletRequest request,
+                                    HttpServletResponse response) 
+                throws IOException, ServletException {
+
+            game.reset();
+            systems.clear();
+            planets.clear();
+            players.clear();
+            game = null;
+            request.setAttribute("players", players);
+            request.setAttribute("game", game);
+            request.setAttribute("systems", systems);
+            request.setAttribute("planets", planets);
+            request.setAttribute("currentPlayer", currentPlayer);
+            RequestDispatcher dispatcher =
+                getServletContext().getRequestDispatcher("/winScreen.jsp");
+            dispatcher.forward(request, response);
+            //response.sendRedirect("http://www.gifgrow.com/g/uTtUwm");
+    }
 
     protected void doPlanetStats(HttpServletRequest request,
                                 HttpServletResponse response)

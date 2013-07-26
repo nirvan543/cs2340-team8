@@ -58,6 +58,14 @@ public class GameLogic
 		return gameOver;
 	}
 
+    public void reset() {
+        StarSystem system = allSystems.get(0);
+        ArrayList<Planet> planetList = system.getPlanets();
+        Player player = planetList.get(0).getOwner(); 
+        players.clear();
+        allSystems.clear();   
+    }
+
     public void attackPlanet(Planet defender, Planet attacker, int attackFleetAmount) {
         //assume front end takes care of Panet's being able to attack or not
         int attackDie = getAttackerDie(attacker, attackFleetAmount);

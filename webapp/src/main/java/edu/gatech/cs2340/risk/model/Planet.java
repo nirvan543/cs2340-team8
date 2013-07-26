@@ -55,4 +55,8 @@ public class Planet
         return currentName;
     }
 
+    public void setCurrentName(int name) {
+        currentName = name;
+    } 
+
 }

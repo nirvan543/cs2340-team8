@@ -8,6 +8,8 @@
 	ArrayList<Player> players = (ArrayList<Player>) request.getAttribute("players"); 
     GameLogic game = (GameLogic) request.getAttribute("game");
     Player currentPlayer = (Player) request.getAttribute("currentPlayer");
+	ArrayList<StarSystem> systems = (ArrayList<StarSystem>) request.getAttribute("systems");
+	ArrayList<Planet> planets = (ArrayList<Planet>) request.getAttribute("planets");
 %>
 
 <%@ page contentType="text/html; charset=UTF-8" language="java" import="java.sql.*" errorPage="" %>
@@ -175,6 +177,12 @@
   <form action="/risk/game" method="POST">
   	  <input type="hidden" name="operation" value="GAME" />    
       <input type="submit" id="End Turn" value="End Turn" disabled/>
+  </form>
+  
+  </form>
+  <form action="/risk/game" method="POST">
+  	  <input type="hidden" name="operation" value="GAMEOVER" />    
+      <input type="submit" id="Game Over" value="Game Over" />
   </form>
 
 <!-- keeps the buttons from displaying if the player has no fleets to add -->
